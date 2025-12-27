@@ -69,11 +69,11 @@
         reg = <0>;
         spi-max-frequency = <1000000>;
         status = "okay";
-        dr-gpios = <&gpio1 04 (GPIO_ACTIVE_HIGH)>;
+        data-ready-gpios = <&gpio1 04 (GPIO_ACTIVE_HIGH)>;
 
         sensitivity = "2x";
         //invert-x;
-        sleep;
+        sleep-mode-enable;
         // no-taps;
     };
 };
