@@ -62,8 +62,8 @@
 
 
 
-#define ZMK_POINTING_DEFAULT_MOVE_VAL 600  // default: 600
-#define ZMK_POINTING_DEFAULT_SCRL_VAL 100    // default: 10
+// #define ZMK_POINTING_DEFAULT_MOVE_VAL 600  // default: 600
+// #define ZMK_POINTING_DEFAULT_SCRL_VAL 100    // default: 10
 
 
 
@@ -126,7 +126,6 @@
 
         sensitivity = "1x";
         sleep-mode-enable;
-        // primary-tap-enable;
     };
 };
 
@@ -135,7 +134,7 @@
         compatible = "zmk,input-listener";
         device = <&glidepoint>;
         input-processors = 
-            <&zip_temp_layer 3 2000>,
+            <&zip_temp_layer 3 1000>,
             <&zip_xy_transform (INPUT_TRANSFORM_Y_INVERT)>,
             <&zip_xy_scaler 3 1>;
 
@@ -144,7 +143,7 @@
             input-processors =
                 <&zip_xy_to_scroll_mapper>,
                 <&zip_scroll_transform (INPUT_TRANSFORM_Y_INVERT)>,
-                <&zip_scroll_scaler 1 6>;
+                <&zip_scroll_scaler 1 1>;
             };
     };
 };
