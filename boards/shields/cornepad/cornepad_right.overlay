@@ -63,7 +63,7 @@
 
 
 #define ZMK_POINTING_DEFAULT_MOVE_VAL 600  // default: 600
-#define ZMK_POINTING_DEFAULT_SCRL_VAL 10    // default: 10
+#define ZMK_POINTING_DEFAULT_SCRL_VAL 30    // default: 10
 
 
 
@@ -129,6 +129,7 @@
         // no-taps;
     };
 };
+
 //INPUT_TRANSFORM_XY_SWAP
 / {
     glidepoint_listener {
@@ -138,7 +139,7 @@
         <&zip_xy_transform (INPUT_TRANSFORM_Y_INVERT)>,
         <&zip_xy_scaler 3 1>;
     };
-          scroller {
+    scroller {
         //layers = <SCROLL>;
         input-processors =
             <&zip_xy_to_scroll_mapper>,
@@ -146,4 +147,3 @@
             <&zip_scroll_scaler 1 6>;
     }; // end scroller
 };
-
