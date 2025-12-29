@@ -50,6 +50,8 @@
 &kp LEFT_CONTROL  &kp Z  &kp X  &kp C     &kp V         &kp B          &kp N        &kp M      &kp COMMA   &kp DOT  &lt 3 FSLH  &kp ESCAPE
                                 &kp LGUI  &kp LEFT_ALT  &lt 1 SPACE    &lt 2 ENTER  &lt 4 DEL  &kp C_NEXT
             >;
+
+            label = "base";
         };
 
         lower_layer {
@@ -65,6 +67,8 @@
 &trans   &trans  &trans  &trans  &trans  &trans    &trans  &trans  &trans  &trans  &trans  &trans
                          &trans  &trans  &none     &trans  &trans  &trans
             >;
+
+            label = "lower";
         };
 
         nav_layer {
@@ -80,6 +84,8 @@
 &trans  &trans    &trans  &trans    &trans    &trans       &kp LEFT   &kp DOWN  &kp RIGHT  &kp PAGE_DOWN  &trans    &trans
                           &trans    &trans    &trans       &none      &trans    &trans
             >;
+
+            label = "nav";
         };
 
         mouse_layer {
@@ -89,6 +95,8 @@
 &trans  &trans  &trans  &trans  &trans  &trans    &msc SCRL_LEFT  &msc SCRL_RIGHT  &trans         &msc SCRL_DOWN    &mo 5   &trans
                         &trans  &trans  &trans    &trans          &trans           &trans
             >;
+
+            label = "mouse";
         };
 
         sys_layer {
@@ -98,6 +106,8 @@
 &out OUT_USB  &none         &none         &none         &none         &bootloader     &bootloader      &none            &none            &none            &none            &sys_reset
                                           &sys_reset    &none         &none           &none            &none            &none
             >;
+
+            label = "sys";
         };
 
         scroll_layer {
@@ -107,6 +117,8 @@
 &trans  &trans  &trans  &trans  &trans  &trans    &trans  &trans  &trans  &trans  &trans  &trans
                         &trans  &trans  &trans    &trans  &trans  &trans
             >;
+
+            label = "scroll";
         };
     };
 };
