@@ -86,7 +86,7 @@
             bindings = <
 &trans  &trans  &trans  &trans  &trans  &trans    &mkp LCLK       &mkp RCLK        &kp C_AC_BACK  &kp C_AC_FORWARD  &trans  &trans
 &trans  &trans  &trans  &trans  &trans  &trans    &mkp LCLK       &mkp RCLK        &mkp MCLK      &msc SCRL_UP      &trans  &trans
-&trans  &trans  &trans  &trans  &trans  &trans    &msc SCRL_LEFT  &msc SCRL_RIGHT  &trans         &msc SCRL_DOWN    &none   &trans
+&trans  &trans  &trans  &trans  &trans  &trans    &msc SCRL_LEFT  &msc SCRL_RIGHT  &trans         &msc SCRL_DOWN    &mo 5   &trans
                         &trans  &trans  &trans    &trans          &trans           &trans
             >;
         };
@@ -100,7 +100,7 @@
             >;
         };
 
-        layer_5 {
+        scroll_layer {
             bindings = <
 &trans  &trans  &trans  &trans  &trans  &trans    &trans  &trans  &trans  &trans  &trans  &trans
 &trans  &trans  &trans  &trans  &trans  &trans    &trans  &trans  &trans  &trans  &trans  &trans
