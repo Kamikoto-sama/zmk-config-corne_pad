@@ -26,6 +26,12 @@
             key-positions = <10 11>;
             layers = <0>;
         };
+
+        play_back {
+            bindings = <&kp C_PREV>;
+            key-positions = <39 41>;
+            layers = <0>;
+        };
     };
 
     keymap {
@@ -41,7 +47,7 @@
             bindings = <
 &kp TAB           &kp Q  &kp W  &kp E     &kp R         &kp T          &kp Y        &kp U      &kp I       &kp O    &kp P       &kp BACKSPACE
 &kp LEFT_SHIFT    &kp A  &kp S  &kp D     &kp F         &kp G          &kp H        &kp J      &kp K       &kp L    &kp SEMI    &kp SQT
-&kp LEFT_CONTROL  &kp Z  &kp X  &kp C     &kp V         &kp B          &kp N        &kp M      &kp COMMA   &kp DOT  &lt 3 FSLH  &kp DEL
+&kp LEFT_CONTROL  &kp Z  &kp X  &kp C     &kp V         &kp B          &kp N        &kp M      &kp COMMA   &kp DOT  &lt 3 FSLH  &kp ESCAPE
                                 &kp LGUI  &kp LEFT_ALT  &lt 1 SPACE    &lt 2 ENTER  &lt 4 DEL  &kp C_NEXT
             >;
         };
@@ -55,7 +61,7 @@
 
             bindings = <
 &kp ESC  &kp N1  &kp N2  &kp N3  &kp N4  &kp N5    &kp N6  &kp N7  &kp N8  &kp N9  &kp N0  &trans
-&trans   &trans  &trans  &trans  &trans  &trans    &trans  &trans  &trans  &trans  &trans  &trans
+&trans   &trans  &trans  &trans  &trans  &trans    &trans  &trans  &trans  &trans  &trans  &kp UNDER
 &trans   &trans  &trans  &trans  &trans  &trans    &trans  &trans  &trans  &trans  &trans  &trans
                          &trans  &trans  &none     &trans  &trans  &trans
             >;
@@ -78,9 +84,9 @@
 
         mouse_layer {
             bindings = <
-&trans  &trans  &trans  &trans  &trans  &trans    &mkp LCLK       &mkp RCLK        &mkp MCLK  &trans          &trans  &trans
-&trans  &trans  &trans  &trans  &trans  &trans    &mkp LCLK       &mkp RCLK        &mkp MCLK  &msc SCRL_UP    &trans  &trans
-&trans  &trans  &trans  &trans  &trans  &trans    &msc SCRL_LEFT  &msc SCRL_RIGHT  &trans     &msc SCRL_DOWN  &none   &trans
+&trans  &trans  &trans  &trans  &trans  &trans    &mkp LCLK       &mkp RCLK        &kp C_AC_BACK  &kp C_AC_FORWARD  &trans  &trans
+&trans  &trans  &trans  &trans  &trans  &trans    &mkp LCLK       &mkp RCLK        &mkp MCLK      &msc SCRL_UP      &trans  &trans
+&trans  &trans  &trans  &trans  &trans  &trans    &msc SCRL_LEFT  &msc SCRL_RIGHT  &trans         &msc SCRL_DOWN    &none   &trans
                         &trans  &trans  &trans    &trans          &trans           &trans
             >;
         };
