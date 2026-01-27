@@ -22,7 +22,7 @@
         };
 
         left_brace {
-            bindings = <&kp RIGHT_BRACKET>;
+            bindings = <&kp MINUS>;
             key-positions = <10 11>;
             layers = <0>;
         };
