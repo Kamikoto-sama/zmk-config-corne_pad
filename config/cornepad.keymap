@@ -58,9 +58,13 @@
             #binding-cells = <0>;
             bindings =
                 <&kp GRAVE &kp GRAVE &kp GRAVE>,
-                <&macro_press &kp LSHFT>,
+                <&macro_press>,
+                <&kp LSHFT>,
+                <&macro_tap>,
                 <&kp RET &kp RET>,
-                <&macro_release &kp LSHFT>,
+                <&macro_release>,
+                <&kp LSHFT>,
+                <&macro_tap>,
                 <&kp GRAVE &kp GRAVE &kp GRAVE &kp UP_ARROW>;
 
             label = "CODE_SNIPPET";
