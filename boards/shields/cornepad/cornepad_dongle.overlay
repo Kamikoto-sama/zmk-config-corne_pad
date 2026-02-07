@@ -1,5 +1,7 @@
 #include <dt-bindings/zmk/matrix_transform.h>
 #include <layouts/foostan/corne/6column.dtsi>
+#include <dt-bindings/led/led.h>
+
 
 &foostan_corne_6col_layout {
     transform = <&default_transform>;
@@ -10,6 +12,7 @@
         zmk,kscan = &mock_kscan;
         zmk,physical-layout = &foostan_corne_6col_layout;
         zephyr,display = &mock_display;
+        zmk,underglow = &mock_led;
     };
 
     mock_kscan: kscan_1 {
@@ -40,4 +43,9 @@ RC(2,0) RC(2,1) RC(2,2) RC(2,3) RC(2,4) RC(2,5)  RC(2,6) RC(2,7) RC(2,8) RC(2,9)
         compatible = "zephyr,display";
         status = "disabled";
     };
+
+    mock_led: ws2812 {
+        compatible = "worldsemi,ws2812-spi";
+        status = "disabled";
+    }
 };
