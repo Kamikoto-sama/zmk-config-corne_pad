@@ -2,7 +2,6 @@
 #include <layouts/foostan/corne/6column.dtsi>
 #include <dt-bindings/led/led.h>
 
-
 &foostan_corne_6col_layout {
     transform = <&default_transform>;
 };
@@ -32,11 +31,6 @@ RC(1,0) RC(1,1) RC(1,2) RC(1,3) RC(1,4) RC(1,5)  RC(1,6) RC(1,7) RC(1,8) RC(1,9)
 RC(2,0) RC(2,1) RC(2,2) RC(2,3) RC(2,4) RC(2,5)  RC(2,6) RC(2,7) RC(2,8) RC(2,9) RC(2,10) RC(2,11)
                         RC(3,3) RC(3,4) RC(3,5)  RC(3,6) RC(3,7) RC(3,8)
         >;
-    };
-
-    glidepoint_listener: glidepoint_listener {
-        compatible = "zmk,input-listener";
-        status = "disabled";
     };
 
     mock_display: display {
