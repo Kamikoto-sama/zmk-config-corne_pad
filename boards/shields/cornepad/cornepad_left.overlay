@@ -57,5 +57,5 @@
 };
 
 &glidepoint_split {
-    status="disabled"
+    status="disabled";
 };
