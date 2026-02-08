@@ -1,3 +1,4 @@
+#include "cornepad.dtsi"
 #include <dt-bindings/zmk/matrix_transform.h>
 #include <layouts/foostan/corne/6column.dtsi>
 #include <dt-bindings/led/led.h>
@@ -10,28 +11,10 @@
     transform = <&default_transform>;
 };
 
-&pro_micro_spi {
-    status = "okay";
-    cs-gpios = <&gpio0 24 GPIO_ACTIVE_LOW>;
-
-    glidepoint: glidepoint@0 {
-        compatible = "cirque,pinnacle";
-        reg = <0>;
-        spi-max-frequency = <1000000>;
-        status = "okay";
-        dr-gpios = <&gpio1 04 (GPIO_ACTIVE_HIGH)>;
-
-        sensitivity = "2x";
-        sleep;
-        no-taps;
-    };
-};
-
 / {
     chosen {
         zmk,kscan = &mock_kscan;
         zmk,physical-layout = &foostan_corne_6col_layout;
-        zephyr,display = &mock_display;
         zmk,underglow = &mock_led;
     };
 
@@ -54,29 +37,13 @@ RC(2,0) RC(2,1) RC(2,2) RC(2,3) RC(2,4) RC(2,5)  RC(2,6) RC(2,7) RC(2,8) RC(2,9)
         >;
     };
 
-    mock_display: display {
-        compatible = "zephyr,display";
-        status = "disabled";
-    };
-
     mock_led: underglow  {
         compatible = "zmk,underglow";
         status = "okay";
         chain-length = <0>;
     };
+};
 
-    glidepoint_listener {
-        compatible = "zmk,input-listener";
-        status = "okay";
-        device = <&glidepoint>;
-        input-processors =
-            <&zip_temp_layer 3 500>,
-            <&zip_xy_transform (INPUT_TRANSFORM_Y_INVERT)>,
-            <&zip_xy_scaler 3 1>;
-
-        scroller {
-            layers = <5>;
-            input-processors = <&zip_xy_to_scroll_mapper>;
-        };
-    };
+&glidepoint_listener {
+    status = "okay";
 };

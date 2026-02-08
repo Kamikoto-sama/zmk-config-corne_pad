@@ -1,6 +1,8 @@
 #include <dt-bindings/zmk/matrix_transform.h>
-#include <layouts/foostan/corne/6column.dtsi>
+#include <dt-bindings/zmk/input_transform.h>
 #include <dt-bindings/led/led.h>
+#include <layouts/foostan/corne/6column.dtsi>
+#include <input/processors.dtsi>
 
 &foostan_corne_6col_layout {
     transform = <&default_transform>;
@@ -28,7 +30,6 @@ RC(2,0) RC(2,1) RC(2,2) RC(2,3) RC(2,4) RC(2,5)  RC(2,6) RC(2,7) RC(2,8) RC(2,9)
     kscan0: kscan {
         compatible = "zmk,kscan-gpio-matrix";
         wakeup-source;
-
         diode-direction = "col2row";
         row-gpios
             = <&pro_micro 16 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>
@@ -57,5 +58,32 @@ RC(2,0) RC(2,1) RC(2,2) RC(2,3) RC(2,4) RC(2,5)  RC(2,6) RC(2,7) RC(2,8) RC(2,9)
         com-sequential;
         inversion-on;
         prechargep = <0x22>;
+    };
+};
+
+/ {
+    split_inputs {
+        #address-cells = <1>;
+        #size-cells = <0>;
+
+        glidepoint_split: glidepoint_split@0 {
+            compatible = "zmk,input-split";
+            reg = <0>;
+        };
+    };
+
+    glidepoint_listener: glidepoint_listener {
+        compatible = "zmk,input-listener";
+        status = "disabled";
+        device = <&glidepoint>;
+        input-processors =
+            <&zip_temp_layer 3 600>,
+            <&zip_xy_transform (INPUT_TRANSFORM_Y_INVERT)>,
+            <&zip_xy_scaler 3 1>;
+
+        scroller {
+            layers = <5>;
+            input-processors = <&zip_xy_to_scroll_mapper>;
+        };
     };
 };
