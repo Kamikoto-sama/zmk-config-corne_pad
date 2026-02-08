@@ -10,6 +10,23 @@
     transform = <&default_transform>;
 };
 
+&pro_micro_spi {
+    status = "okay";
+    cs-gpios = <&gpio0 24 GPIO_ACTIVE_LOW>;
+
+    glidepoint: glidepoint@0 {
+        compatible = "cirque,pinnacle";
+        reg = <0>;
+        spi-max-frequency = <1000000>;
+        status = "okay";
+        dr-gpios = <&gpio1 04 (GPIO_ACTIVE_HIGH)>;
+
+        sensitivity = "2x";
+        sleep;
+        no-taps;
+    };
+};
+
 / {
     chosen {
         zmk,kscan = &mock_kscan;
@@ -51,7 +68,7 @@ RC(2,0) RC(2,1) RC(2,2) RC(2,3) RC(2,4) RC(2,5)  RC(2,6) RC(2,7) RC(2,8) RC(2,9)
     glidepoint_listener {
         compatible = "zmk,input-listener";
         device = <&glidepoint>;
-        input-processors = 
+        input-processors =
             <&zip_temp_layer 3 500>,
             <&zip_xy_transform (INPUT_TRANSFORM_Y_INVERT)>,
             <&zip_xy_scaler 3 1>;
