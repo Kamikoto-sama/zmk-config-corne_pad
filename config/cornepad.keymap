@@ -50,6 +50,12 @@
             key-positions = <23 22>;
             layers = <0>;
         };
+
+        combo_dongle_boot {
+            bindings = <&bootloader>;
+            key-positions = <39 38>;
+            layers = <4>;
+        };
     };
 
     macros {
