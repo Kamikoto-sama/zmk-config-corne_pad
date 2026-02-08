@@ -8,16 +8,12 @@ config ZMK_SPLIT_ROLE_CENTRAL
 
 endif
 
-if SHIELD_CORNEPAD_RIGHT
-
-config SPI
-    default y
-
-endif
-
 if SHIELD_CORNEPAD_RIGHT || SHIELD_CORNEPAD_DONGLE
 
 config ZMK_POINTING
+    default y
+
+config SPI
     default y
 
 endif
