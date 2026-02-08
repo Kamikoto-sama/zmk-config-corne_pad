@@ -55,27 +55,3 @@
         , <&pro_micro 14 GPIO_ACTIVE_HIGH>
         ;
 };
-
-&pro_micro_spi {
-    status = "okay";
-    cs-gpios = <&gpio0 24 GPIO_ACTIVE_LOW>;
-
-    glidepoint: glidepoint@0 {
-        compatible = "cirque,pinnacle";
-        reg = <0>;
-        spi-max-frequency = <1000000>;
-        status = "okay";
-        dr-gpios = <&gpio1 04 (GPIO_ACTIVE_HIGH)>;
-
-        sensitivity = "2x";
-        sleep;
-        no-taps;
-    };
-};
-
-/ {
-    glidepoint_listener: glidepoint_listener {
-        compatible = "zmk,input-listener";
-        status = "disabled";
-    };
-};
