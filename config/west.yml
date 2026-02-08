@@ -5,7 +5,11 @@ manifest:
   projects:
   - name: zmk
     remote: zmkfirmware
-    revision: main
+    revision: v0.3-branch
     import: app/west.yml
+  - name: cirque-input-module
+    url: https://github.com/petejohanson/cirque-input-module
+    revision: main
+    path: modules/cirque-input-module
   self:
     path: config
