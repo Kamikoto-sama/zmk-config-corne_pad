@@ -110,10 +110,11 @@
         reg = <0>;
         spi-max-frequency = <1000000>;
         status = "okay";
-        data-ready-gpios = <&gpio1 04 (GPIO_ACTIVE_HIGH)>;
+        dr-gpios = <&gpio1 04 (GPIO_ACTIVE_HIGH)>;
 
         sensitivity = "1x";
-        sleep-mode-enable;
+        sleep;
+        no-taps;
     };
 };
 
