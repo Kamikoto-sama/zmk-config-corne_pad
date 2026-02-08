@@ -10,6 +10,5 @@ features:
   - display
   - studio
 siblings:
-  - cornepad_dongle
   - cornepad_left
   - cornepad_right

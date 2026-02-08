@@ -10,10 +10,14 @@ endif
 
 if SHIELD_CORNEPAD_RIGHT
 
-config ZMK_POINTING
+config SPI
     default y
 
-config SPI
+endif
+
+if SHIELD_CORNEPAD_RIGHT || SHIELD_CORNEPAD_DONGLE
+
+config ZMK_POINTING
     default y
 
 endif
