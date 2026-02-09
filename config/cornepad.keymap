@@ -15,7 +15,7 @@
 &glidepoint_listener {
     status = "okay";
     input-processors =
-        <&zip_temp_layer 3 500>,
+        <&zip_temp_layer 3 600>,
         <&zip_xy_transform (INPUT_TRANSFORM_Y_INVERT)>,
         <&zip_xy_scaler 3 1>;
 
