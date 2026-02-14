@@ -145,8 +145,8 @@
             bindings = <
 &trans  &trans  &trans  &trans  &trans  &trans    &mkp LCLK  &mkp RCLK  &kp C_AC_BACK  &kp C_AC_FORWARD  &none  &none
 &trans  &trans  &trans  &trans  &trans  &trans    &mkp LCLK  &mkp RCLK  &mkp MCLK      &kp C_AC_FORWARD  &none  &none
-&trans  &trans  &trans  &trans  &trans  &trans    &none      &mkp MCLK  &none          &kp C_AC_BACK     &mo 5  &none
-                        &trans  &trans  &trans    &none      &none      &none
+&trans  &trans  &trans  &trans  &trans  &trans    &none      &mkp MCLK  &none          &kp C_AC_BACK     &mo 5  &trans
+                        &trans  &trans  &trans    &trans     &trans     &trans
             >;
 
             label = "mouse";
