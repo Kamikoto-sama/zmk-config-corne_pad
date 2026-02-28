@@ -4,6 +4,8 @@ manifest:
     url-base: https://github.com/zmkfirmware
   - name: halfdane
     url-base: https://github.com/halfdane/
+  - name: bennypowers
+    url-base: https://github.com/bennypowers
   projects:
   - name: zmk
     remote: zmkfirmware
@@ -14,7 +16,7 @@ manifest:
   #   revision: main
   #   path: modules/cirque-input-module
   - name: zmk-input-gestures
-    remote: halfdane
+    remote: bennypowers
     revision: main
   - name: zmk-input-processors
     remote: halfdane
