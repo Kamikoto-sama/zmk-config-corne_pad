@@ -9,9 +9,8 @@
 #include <behaviors/input_processor_absolute_to_relative.dtsi>
 
 &zip_gestures {
-    tap-detection;
-    inertial-cursor;
     circular-scroll;
+    circular-scroll-rim-percent=<20>;
 };
 
 &glidepoint_listener {
@@ -19,14 +18,15 @@
     input-processors = <
         &zip_gestures
         &zip_absolute_to_relative
-        &zip_temp_layer 3 600
-        // &zip_xy_transform (INPUT_TRANSFORM_Y_INVERT)
-        // &zip_xy_scaler 3 1
+        &zip_temp_layer 3 100
     >;
 
     scroller {
         layers = <5>;
-        input-processors = <&zip_xy_to_scroll_mapper>;
+        input-processors = <
+            &zip_absolute_to_relative
+            &zip_xy_to_scroll_mapper
+        >;
     };
 };
 
