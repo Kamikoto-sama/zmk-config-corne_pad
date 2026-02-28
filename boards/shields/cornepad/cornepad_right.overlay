@@ -65,10 +65,6 @@
   };
 };
 
-&default_transform {
-    col-offset = <6>;
-};
-
 &pro_micro_spi {
     status = "okay";
     cs-gpios = <&gpio0 24 GPIO_ACTIVE_LOW>;
@@ -82,12 +78,17 @@
 
         sensitivity = "3x";
         // sleep;
-        no-taps;
+        // no-taps;
+        absolute-mode;
     };
 };
 
 &glidepoint_split {
     device = <&glidepoint>;
+};
+
+&default_transform {
+    col-offset = <6>;
 };
 
 / {
