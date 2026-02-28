@@ -8,13 +8,20 @@
 #include <dt-bindings/zmk/rgb.h>
 #include <behaviors/input_processor_absolute_to_relative.dtsi>
 
+&zip_gestures {
+    tap-detection;
+    inertial-cursor;
+    circular-scroll;
+};
+
 &glidepoint_listener {
     status = "okay";
     input-processors =
+        <&zip_gestures>,
         <&zip_absolute_to_relative>,
         <&zip_temp_layer 3 600>,
-        <&zip_xy_transform (INPUT_TRANSFORM_Y_INVERT)>,
-        <&zip_xy_scaler 3 1>;
+        // <&zip_xy_transform (INPUT_TRANSFORM_Y_INVERT)>,
+        // <&zip_xy_scaler 3 1>;
 
     scroller {
         layers = <5>;
