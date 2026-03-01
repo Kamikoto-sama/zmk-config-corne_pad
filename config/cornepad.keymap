@@ -10,7 +10,7 @@
 
 &zip_gestures {
     circular-scroll;
-    circular-scroll-rim-percent=<15>;
+    circular-scroll-rim-percent=<10>;
 };
 
 &glidepoint_listener {
