@@ -13,7 +13,6 @@
     input-processors = <
         &zip_absolute_to_relative
         &zip_temp_layer 3 100
-        &zip_xy_scaler 3 1
     >;
 
     scroller {
