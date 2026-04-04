@@ -1,12 +1,12 @@
 #include <input/processors.dtsi>
 #include <dt-bindings/zmk/input_transform.h>
+#include <behaviors/input_processor_absolute_to_relative.dtsi>
 #include <behaviors.dtsi>
 #include <dt-bindings/zmk/bt.h>
 #include <dt-bindings/zmk/keys.h>
 #include <dt-bindings/zmk/outputs.h>
 #include <dt-bindings/zmk/pointing.h>
 #include <dt-bindings/zmk/rgb.h>
-#include <behaviors/input_processor_absolute_to_relative.dtsi>
 
 &glidepoint_listener {
     status = "okay";
@@ -93,6 +93,15 @@
         };
     };
 
+    behaviors {
+        td_caps: td_caps {
+            compatible = "zmk,behavior-tap-dance";
+            label = "TD_CAPS";
+            #binding-cells = <0>;
+            bindings = <&kp LEFT_SHIFT>, <&kp CAPS>;
+        };
+    };
+
     keymap {
         compatible = "zmk,keymap";
 
@@ -105,7 +114,7 @@
 
             bindings = <
 &kp TAB           &kp Q    &kp W  &kp E                 &kp R         &kp T          &kp Y            &kp U      &kp I       &kp O    &kp P       &kp LBKT
-&kp LEFT_SHIFT    &kp A    &kp S  &kp D                 &kp F         &kp G          &kp H            &kp J      &kp K       &kp L    &kp SEMI    &kp SQT
+&td_caps          &kp A    &kp S  &kp D                 &kp F         &kp G          &kp H            &kp J      &kp K       &kp L    &kp SEMI    &kp SQT
 &kp LEFT_CONTROL  &lt 4 Z  &kp X  &kp C                 &kp V         &kp B          &kp N            &kp M      &kp COMMA   &kp DOT  &lt 5 FSLH  &lt 4 DELETE
                                   &mt LEFT_SHIFT ENTER  &kp LEFT_ALT  &lt 1 SPACE    &lt 2 BACKSPACE  &kp ENTER  &kp C_NEXT
             >;
