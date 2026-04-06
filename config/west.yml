@@ -5,7 +5,7 @@ manifest:
   - name: halfdane
     url-base: https://github.com/halfdane/
   - name: input-gestures-fork
-    url-base: https://github.com/oleksandrmaslov
+    url-base: https://github.com/idesignstuff
   projects:
   - name: zmk
     remote: zmkfirmware
