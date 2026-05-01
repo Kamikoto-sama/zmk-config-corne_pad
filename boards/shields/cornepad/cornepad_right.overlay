@@ -5,7 +5,7 @@
 #include <dt-bindings/zmk/pointing.h>
 #include <dt-bindings/led/led.h>
 
-// touchpad
+// touchpad pins
 &pinctrl {
     spi1_default: spi1_default {
         group1 {
@@ -26,7 +26,7 @@
 
 };
 
-// LED
+// LED pins
 &pinctrl {
     spi3_default: spi3_default {
         group1 {
@@ -78,7 +78,7 @@
         dr-gpios = <&gpio1 04 (GPIO_ACTIVE_HIGH)>;
 
         sensitivity = "1x";
-        sleep;
+        // sleep;
         // no-taps;
         absolute-mode;
     };

@@ -8,14 +8,9 @@
 #include <dt-bindings/zmk/pointing.h>
 #include <dt-bindings/zmk/rgb.h>
 
-&zip_gestures {
-    inertial-cursor;
-};
-
 &glidepoint_listener {
     status = "okay";
     input-processors = <
-        &zip_gestures
         &zip_absolute_to_relative
         &zip_temp_layer 3 100
     >;
