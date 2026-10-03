@@ -2,14 +2,27 @@ manifest:
   remotes:
   - name: zmkfirmware
     url-base: https://github.com/zmkfirmware
+  - name: halfdane
+    url-base: https://github.com/halfdane/
+  - name: bennypowers
+    url-base: https://github.com/bennypowers
   projects:
   - name: zmk
     remote: zmkfirmware
     revision: v0.3-branch
     import: app/west.yml
-  - name: cirque-input-module
-    url: https://github.com/petejohanson/cirque-input-module
+  # - name: cirque-input-module
+  #   url: https://github.com/petejohanson/cirque-input-module
+  #   revision: main
+  #   path: modules/cirque-input-module
+  - name: zmk-input-gestures
+    remote: bennypowers
     revision: main
-    path: modules/cirque-input-module
+  - name: zmk-input-processors
+    remote: halfdane
+    revision: main
+  - name: cirque-input-module
+    remote: halfdane
+    revision: absolute_mode
   self:
     path: config

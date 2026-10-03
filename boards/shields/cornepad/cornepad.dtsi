@@ -1,6 +1,8 @@
 #include <dt-bindings/zmk/matrix_transform.h>
 #include <layouts/foostan/corne/6column.dtsi>
 #include <dt-bindings/zmk/pointing.h>
+#include <behaviors/input_processor_gestures.dtsi>
+#include <behaviors/input_processor_absolute_to_relative.dtsi>
 
 &foostan_corne_6col_layout {
     transform = <&default_transform>;
