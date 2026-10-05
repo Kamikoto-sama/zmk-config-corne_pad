@@ -1,0 +1,3 @@
+zephyr_compile_definitions(
+  zmk_endpoint_send_mouse_report=zmk_endpoints_send_mouse_report
+)

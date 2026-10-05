@@ -26,10 +26,11 @@ run_in_container() {
     if [[ "$initialized" == 1 || "${ZMK_UPDATE:-0}" == 1 ]]; then
         echo "==> Updating ZMK and its modules"
         west update
-        west zephyr-export
     else
         echo "==> Reusing the existing West workspace"
     fi
+
+    west zephyr-export
 
     echo "==> Building the build.yaml matrix"
     python3 - /workspaces/config <<'PY'
