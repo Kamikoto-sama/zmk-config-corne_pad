@@ -66,6 +66,7 @@
   };
 };
 
+// Touchpad
 &pro_micro_spi {
     status = "okay";
     cs-gpios = <&gpio0 24 GPIO_ACTIVE_LOW>;
