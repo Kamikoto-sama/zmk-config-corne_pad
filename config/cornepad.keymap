@@ -33,12 +33,10 @@
 
 &zip_inertia {
     trigger-ms = <35>;
-
     move-decay-factor-int = <96>;
     move-report-interval-ms = <20>;
     move-threshold-start = <8>;
     move-threshold-stop = <5>;
-
     scroll-decay-factor-int = <95>;
     scroll-report-interval-ms = <20>;
     scroll-threshold-start = <2>;
@@ -122,10 +120,10 @@
             //                    | GUI | LWR | SPC |   | ENT | RSE  | ALT |
 
             bindings = <
-&kp TAB             &kp Q    &kp W  &kp E                 &kp R         &kp T          &kp Y            &kp U      &kp I       &kp O    &kp P       &kp LBKT
-&mt LSHFT CAPSLOCK  &kp A    &kp S  &kp D                 &kp F         &kp G          &kp H            &kp J      &kp K       &kp L    &kp SEMI    &kp SQT
-&kp LEFT_CONTROL    &lt 4 Z  &kp X  &kp C                 &kp V         &kp B          &kp N            &kp M      &kp COMMA   &kp DOT  &lt 5 FSLH  &lt 4 DELETE
-                                    &mt LEFT_SHIFT ENTER  &kp LEFT_ALT  &lt 1 SPACE    &lt 2 BACKSPACE  &kp ENTER  &kp C_NEXT
+&kp TAB             &kp Q    &kp W  &kp E               &kp R         &kp T          &kp Y            &kp U      &kp I       &kp O    &kp P       &kp LBKT
+&mt LSHFT CAPSLOCK  &kp A    &kp S  &kp D               &kp F         &kp G          &kp H            &kp J      &kp K       &kp L    &kp SEMI    &kp SQT
+&kp LEFT_CONTROL    &lt 4 Z  &kp X  &kp C               &kp V         &kp B          &kp N            &kp M      &kp COMMA   &kp DOT  &lt 5 FSLH  &lt 4 DELETE
+                                    &mt LEFT_GUI ENTER  &kp LEFT_ALT  &lt 1 SPACE    &lt 2 BACKSPACE  &kp ENTER  &kp C_NEXT
             >;
         };
 
@@ -152,10 +150,10 @@
             //                    | GUI |     | SPC |   | ENT |     | ALT |
 
             bindings = <
-&trans  &kp EXCL  &kp AT  &kp HASH  &kp DLLR  &kp PRCNT       &kp CARET  &kp AMPS           &kp ASTRK        &kp LPAR       &kp RPAR  &kp GRAVE
-&trans  &trans    &trans  &trans    &trans    &trans          &kp HOME   &kp UP             &kp END          &kp PG_UP      &trans    &trans
-&trans  &trans    &trans  &trans    &trans    &kp LEFT_GUI    &kp LEFT   &kp DOWN           &kp RIGHT        &kp PAGE_DOWN  &trans    &trans
-                          &trans    &trans    &kp SPACE       &trans     &kp C_VOLUME_DOWN  &kp C_VOLUME_UP
+&trans  &kp EXCL  &kp AT  &kp HASH  &kp DLLR  &kp PRCNT       &kp CARET      &kp AMPS           &kp ASTRK        &kp LPAR   &kp RPAR  &kp GRAVE
+&trans  &trans    &trans  &trans    &trans    &trans          &kp PG_UP      &kp HOME           &kp UP           &kp END    &trans    &trans
+&trans  &trans    &trans  &trans    &trans    &kp LEFT_GUI    &kp PAGE_DOWN  &kp LEFT           &kp DOWN         &kp RIGHT  &trans    &trans
+                          &trans    &trans    &kp SPACE       &trans         &kp C_VOLUME_DOWN  &kp C_VOLUME_UP
             >;
 
             label = "nav";
