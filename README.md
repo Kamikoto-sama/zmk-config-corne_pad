@@ -52,3 +52,30 @@ The script keeps the West workspace and downloaded modules in the
 
 Set `ZMK_IMAGE` or `ZMK_WORKSPACE_VOLUME` to override the Docker image or the
 workspace volume name.
+
+## Returning from RMK to ZMK
+
+RMK overwrites the flash area normally occupied by the SoftDevice on many
+nice!nano v2 bootloader installations. Build dedicated rollback images with
+the `nrf52840-nosd` snippet:
+
+```sh
+./build-local.sh --rollback
+```
+
+This builds the two keyboard halves and a compatible settings-reset image unless
+target flags are supplied. The resulting files are:
+
+- `firmware/cornepad_left-rollback.uf2`
+- `firmware/cornepad_right-rollback.uf2`
+- `firmware/settings_reset-rollback.uf2`
+
+Flash both halves: left image to the left controller and right image to the
+right controller. Existing ZMK Bluetooth bonds may be stale after the firmware
+change; if the halves do not reconnect, flash `settings_reset-rollback.uf2` to
+each half, then flash the matching rollback image again and remove the old
+keyboard bond from the host before pairing it anew.
+
+Keep using rollback images while the current bootloader has no SoftDevice.
+Standard ZMK images are suitable again after installing a bootloader package
+that includes the SoftDevice.

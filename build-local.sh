@@ -59,6 +59,10 @@ if not isinstance(entries, list) or not entries:
 requested_targets = {
     target for target in os.environ.get("ZMK_TARGETS", "").split(",") if target
 }
+rollback_build = os.environ.get("ZMK_ROLLBACK") == "1"
+if rollback_build and not requested_targets:
+    requested_targets = {"cornepad_left", "cornepad_right", "settings_reset"}
+
 if requested_targets:
     available_targets = {
         str(entry.get("shield")) for entry in entries if isinstance(entry, dict)
@@ -86,13 +90,16 @@ for index, entry in enumerate(entries, start=1):
         raise SystemExit(f"Invalid build.yaml entry #{index}: board and shield are required")
 
     artifact_name = entry.get("artifact-name") or f"{board}-{shield}"
+    if rollback_build:
+        artifact_name = f"{artifact_name}-rollback"
     safe_name = re.sub(r"[^A-Za-z0-9._-]+", "-", str(artifact_name)).strip("-.")
     if not safe_name:
         raise SystemExit(f"Invalid artifact name in build.yaml entry #{index}")
 
     build_dir = repo / "build" / safe_name
     signature_path = build_dir / ".zmk-build-signature"
-    signature = json.dumps(entry, sort_keys=True, separators=(",", ":"))
+    build_options = {"entry": entry, "rollback": rollback_build}
+    signature = json.dumps(build_options, sort_keys=True, separators=(",", ":"))
     reuse_configuration = (
         not clean_build
         and not updated_workspace
@@ -123,6 +130,8 @@ for index, entry in enumerate(entries, start=1):
         snippet = entry.get("snippet")
         if snippet:
             command.extend(["-S", str(snippet)])
+        if rollback_build:
+            command.extend(["-S", "nrf52840-nosd"])
 
         command.extend(
             [
@@ -166,6 +175,7 @@ fi
 
 update=0
 clean=0
+rollback=0
 targets=()
 
 while [[ $# -gt 0 ]]; do
@@ -175,6 +185,9 @@ while [[ $# -gt 0 ]]; do
             ;;
         --clean)
             clean=1
+            ;;
+        --rollback)
+            rollback=1
             ;;
         --left)
             targets+=(cornepad_left)
@@ -191,7 +204,7 @@ while [[ $# -gt 0 ]]; do
         -h|--help)
             cat <<'EOF'
 Usage: ./build-local.sh [--left] [--right] [--dongle] [--reset]
-                        [--update] [--clean]
+                        [--update] [--clean] [--rollback]
 
 By default, reuse downloaded dependencies and build all targets incrementally.
 Target flags can be combined to build any subset.
@@ -202,6 +215,9 @@ Target flags can be combined to build any subset.
   --reset   Build the settings-reset firmware.
   --update  Update ZMK and all West modules before building.
   --clean   Discard cached build output and rebuild every target from scratch.
+  --rollback
+             Build with the nrf52840-nosd snippet for devices previously
+             flashed with RMK. Defaults to both halves and settings reset.
 EOF
             exit 0
             ;;
@@ -230,6 +246,7 @@ docker_args=(
     -w /workspaces
     -e "ZMK_UPDATE=$update"
     -e "ZMK_CLEAN=$clean"
+    -e "ZMK_ROLLBACK=$rollback"
     -e "ZMK_TARGETS=$targets_csv"
 )
 
