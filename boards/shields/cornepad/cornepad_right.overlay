@@ -80,12 +80,13 @@
 
         sensitivity = "1x";
         // sleep;
-        // no-taps;
+        no-taps;
         absolute-mode;
     };
 };
 
-&glidepoint_split {
+&glidepoint_listener {
+    status = "okay";
     device = <&glidepoint>;
 };
 
