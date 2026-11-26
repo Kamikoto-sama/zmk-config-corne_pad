@@ -23,7 +23,6 @@ Build only selected targets with one or more target flags:
 ```sh
 ./build-local.sh --left
 ./build-local.sh --right
-./build-local.sh --dongle
 ./build-local.sh --reset
 ./build-local.sh --left --right
 ```
@@ -47,7 +46,6 @@ The script keeps the West workspace and downloaded modules in the
 
 - `cornepad_left.uf2`
 - `cornepad_right.uf2`
-- `cornepad_dongle.uf2`
 - `settings_reset.uf2`
 
 Set `ZMK_IMAGE` or `ZMK_WORKSPACE_VOLUME` to override the Docker image or the

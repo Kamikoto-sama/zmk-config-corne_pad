@@ -69,8 +69,3 @@
 
     };
 };
-
-
-&glidepoint_split {
-    status= "disabled";
-};

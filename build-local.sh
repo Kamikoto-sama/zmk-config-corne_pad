@@ -195,15 +195,12 @@ while [[ $# -gt 0 ]]; do
         --right)
             targets+=(cornepad_right)
             ;;
-        --dongle)
-            targets+=(cornepad_dongle)
-            ;;
         --reset)
             targets+=(settings_reset)
             ;;
         -h|--help)
             cat <<'EOF'
-Usage: ./build-local.sh [--left] [--right] [--dongle] [--reset]
+Usage: ./build-local.sh [--left] [--right] [--reset]
                         [--update] [--clean] [--rollback]
 
 By default, reuse downloaded dependencies and build all targets incrementally.
@@ -211,7 +208,6 @@ Target flags can be combined to build any subset.
 
   --left    Build the left half.
   --right   Build the right half.
-  --dongle  Build the dongle.
   --reset   Build the settings-reset firmware.
   --update  Update ZMK and all West modules before building.
   --clean   Discard cached build output and rebuild every target from scratch.

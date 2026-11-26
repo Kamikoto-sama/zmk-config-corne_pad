@@ -10,7 +10,6 @@
 #include <dt-bindings/zmk/rgb.h>
 
 &glidepoint_listener {
-    status = "okay";
     input-processors = <
         &zip_absolute_to_relative
         &zip_temp_layer 3 100
@@ -81,12 +80,6 @@
             bindings = <&kp BACKSLASH>;
             key-positions = <23 22>;
             layers = <0>;
-        };
-
-        dongle_boot {
-            bindings = <&bootloader>;
-            key-positions = <39 38>;
-            layers = <4>;
         };
     };
 
